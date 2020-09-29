@@ -43,3 +43,13 @@ airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plug
 ```
  python -m airtest report testcase/start_broadcast.air --log_root testcase/start_broadcast.air/log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
 ```
+
+## zk
+```shell script
+docker run -d \
+-p 2181:2181 \
+-v {your_path}/data:/data/ \
+--name=zk1  \
+--privileged zookeeper
+
+```

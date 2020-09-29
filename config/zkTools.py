@@ -6,6 +6,7 @@
 @time:2020/09/29
 """
 # /usr/local/Cellar/zookeeper/3.6.2/bin
+
 import os
 import subprocess
 import time
@@ -18,7 +19,8 @@ from kazoo.recipe.watchers import DataWatch
 class KazooCli(object):
 
     def __init__(self):
-        self.zk = KazooClient(hosts='127.0.0.1')
+        # self.zk = KazooClient(hosts='127.0.0.1')
+        self.zk = KazooClient(hosts='10.61.153.83')
         self.zk.start()  # 与zookeeper连接
 
     def func_cb(self, data, stat):
@@ -65,5 +67,6 @@ if __name__ == '__main__':
     #     print(e)
     #     kc.zk.stop()
 
-    # kc.unlock()
+    kc.unlock()
     kc.get_lock()
+    kc.stop()
