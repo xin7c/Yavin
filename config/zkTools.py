@@ -16,6 +16,8 @@ from kazoo.exceptions import NodeExistsError, NoNodeError
 from kazoo.recipe.watchers import DataWatch
 
 
+# TODO 采用zk的目的：是否可以通过修改zk的配置来触发切换package_name的操作？
+
 class KazooCli(object):
 
     def __init__(self):
@@ -55,7 +57,6 @@ class KazooCli(object):
         self.zk.stop()
 
 
-# TODO 是否可以通过修改zk的配置来触发切换package_name的操作？
 if __name__ == '__main__':
     kc = KazooCli()
     kc.start()

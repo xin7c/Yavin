@@ -45,7 +45,10 @@ airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plug
 ```
 
 ## zk
-```shell script
+```text
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
+```text
 docker run -d \
 -p 2181:2181 \
 -v {your_path}/data:/data/ \
