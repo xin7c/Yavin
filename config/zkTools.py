@@ -25,10 +25,14 @@ class KazooCli(object):
         self.zk = KazooClient(hosts='10.61.153.83:2182')
         self.zk.start()  # 与zookeeper连接
 
-    def func_cb(self, data, stat):
+    def func_cb(self, data, stat, event):
         print(self.zk.state)
-        print(f"Data is {data}")
-        print(f"Version is {stat.version}")
+        # print(args)
+        print(data, stat, event)
+        if event is not None:
+            print(f"节点 [{event.path}]变更： #类型 {event.type} #状态 {event.state}")
+        # print(f"Data is {data}")
+        # print(f"Version is {stat.version}")
         # # res = subprocess.call(['git', data])
         # print(f"命令行执行结果[{res}]")
 
@@ -59,21 +63,42 @@ class KazooCli(object):
         node = self.zk.get_children('/')
         print(node)
 
+    def get_children(self, path: str) -> list:
+        """
+        获取路径子节点
+        :param path: "/cc"
+        :return: children list
+        """
+        res = self.zk.create("/cc/del_", b"add", ephemeral=True, sequence=True, makepath=True)[4:]
+        print(res)
+        time.sleep(1)
+        children = self.zk.get_children(path)
+        print(children, res)
+        if res < max(children):
+            print("拿锁失败")
+        else:
+            print("成功获取锁！")
+            b = self.zk.delete("/cc/" + res)
+            print(f"删除节点，释放锁{b}")
+        return children
+
     def stop(self):
         self.zk.stop()
 
 
 if __name__ == '__main__':
     kc = KazooCli()
-    kc.start()
+    # kc.start()
 
     try:
-        watcher = DataWatch(kc.zk, "/yavin/package_name", kc.func_cb)
+        print(kc.zk.get_children("/cc"))
+        watcher = DataWatch(kc.zk, "/cc/del_0000000151", kc.func_cb)
         while True:
-            time.sleep(1)
+            time.sleep(30)
     except Exception as e:
         print(e)
         kc.zk.stop()
     # kc.unlock()
     # kc.get_lock()
+    kc.get_children("/cc")
     # kc.stop()
