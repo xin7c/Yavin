@@ -22,7 +22,7 @@ class KazooCli(object):
 
     def __init__(self):
         # self.zk = KazooClient(hosts='127.0.0.1')
-        self.zk = KazooClient(hosts='10.61.153.83')
+        self.zk = KazooClient(hosts='10.61.153.83:2182')
         self.zk.start()  # 与zookeeper连接
 
     def func_cb(self, data, stat):
@@ -50,6 +50,12 @@ class KazooCli(object):
             print(e)
 
     def start(self):
+        # self.zk.ensure_path("/cc")
+        try:
+            self.zk.create("/yavin/package_name", b"com.cmcm.live", makepath=True)
+        except NodeExistsError as e:
+            print(e, "创建节点已存在")
+        print(self.zk.get("/yavin/package_name"))
         node = self.zk.get_children('/')
         print(node)
 
@@ -60,14 +66,14 @@ class KazooCli(object):
 if __name__ == '__main__':
     kc = KazooCli()
     kc.start()
-    # try:
-    #     watcher = DataWatch(kc.zk, "/yavin/package_name", kc.func_cb)
-    #     while True:
-    #         time.sleep(1)
-    # except Exception as e:
-    #     print(e)
-    #     kc.zk.stop()
 
-    kc.unlock()
-    kc.get_lock()
-    kc.stop()
+    try:
+        watcher = DataWatch(kc.zk, "/yavin/package_name", kc.func_cb)
+        while True:
+            time.sleep(1)
+    except Exception as e:
+        print(e)
+        kc.zk.stop()
+    # kc.unlock()
+    # kc.get_lock()
+    # kc.stop()
