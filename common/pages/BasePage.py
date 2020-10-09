@@ -182,6 +182,34 @@ class BasePage(object, metaclass=Base):
         print(f"跳转个人页{Config().get_base_page('ID_ME_PAGE')}")
         return self
 
+    def up_swipe(self):
+        """上滑"""
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.7, self.height * 0.7)
+        end_pt = (self.width * 0.7, self.height * 0.3)
+        swipe(start_pt, end_pt)
+
+    def down_swipe(self):
+        """下滑"""
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.7, self.height * 0.3)
+        end_pt = (self.width * 0.7, self.height * 0.7)
+        swipe(start_pt, end_pt)
+
+    def left_swipe(self):
+        """左滑"""
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.3, self.height / 2)
+        end_pt = (self.width * 0.7, self.height / 2)
+        swipe(start_pt, end_pt)
+
+    def right_swipe(self):
+        """右滑"""
+        self.width, self.height = self.device.get_current_resolution()
+        start_pt = (self.width * 0.7, self.height / 2)
+        end_pt = (self.width * 0.3, self.height / 2)
+        swipe(start_pt, end_pt)
+
     def in_current_page(self):
         pass
 
