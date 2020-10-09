@@ -87,6 +87,14 @@ class KazooCli(object):
 
 
 if __name__ == '__main__':
+    """
+    # 创建节点路径，但不能设置节点数据值
+    zk.ensure_path("/my/favorite")
+     
+    # 创建节点，并设置节点保存数据，ephemeral表示是否是临时节点，sequence表示是否是顺序节点
+    zk.create("/my/favorite/node", b"a value", ephemeral=True, sequence=True)
+    """
+
     kc = KazooCli()
     # kc.start()
 
