@@ -188,6 +188,7 @@ class BasePage(object, metaclass=Base):
         start_pt = (self.width * 0.7, self.height * 0.7)
         end_pt = (self.width * 0.7, self.height * 0.3)
         swipe(start_pt, end_pt)
+        return self
 
     def down_swipe(self):
         """下滑"""
@@ -195,6 +196,7 @@ class BasePage(object, metaclass=Base):
         start_pt = (self.width * 0.7, self.height * 0.3)
         end_pt = (self.width * 0.7, self.height * 0.7)
         swipe(start_pt, end_pt)
+        return self
 
     def left_swipe(self):
         """左滑"""
@@ -202,6 +204,7 @@ class BasePage(object, metaclass=Base):
         start_pt = (self.width * 0.3, self.height / 2)
         end_pt = (self.width * 0.7, self.height / 2)
         swipe(start_pt, end_pt)
+        return self
 
     def right_swipe(self):
         """右滑"""
@@ -209,6 +212,7 @@ class BasePage(object, metaclass=Base):
         start_pt = (self.width * 0.7, self.height / 2)
         end_pt = (self.width * 0.3, self.height / 2)
         swipe(start_pt, end_pt)
+        return self
 
     def in_current_page(self):
         pass
