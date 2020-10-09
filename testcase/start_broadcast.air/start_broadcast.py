@@ -10,7 +10,7 @@ from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 from common.login.login import login_if_needed
 from common.popup.featurelist_popup import *
 from airtest.core.android import Android
-from common.pages.HomePage import *
+from common.pages.HomePage_old import *
 from common.pages.UpLivePage import *
 from airtest.core.helper import log
 

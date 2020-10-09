@@ -10,7 +10,7 @@ from common.app.get_current_activity import *
 from common.popup.videoplayer import videoplayer_popup_handler
 import logging
 from common.login.login import *
-from common.pages.HomePage import *
+from common.pages.HomePage_old import *
 from common.pages.CMPlayerPage import *
 from common.pages.AnchorPage import *
 

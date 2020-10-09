@@ -6,7 +6,7 @@ import os
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from common.app.app_control import *
 from common.login.login import login_if_needed
-from common.pages.HomePage import HomePage
+from common.pages.HomePage_old import HomePage
 from common.pages.MePage import MePage
 from common.pages.StorePage import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco

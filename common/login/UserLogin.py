@@ -3,7 +3,7 @@ __author__ = 'wanglimin'
 
 from common.app.config import *
 from common.pages.LoginPage import *
-from common.pages.HomePage import *
+from common.pages.HomePage_old import *
 from airtest.core.api import *
 
 poco = AndroidUiautomationPoco()

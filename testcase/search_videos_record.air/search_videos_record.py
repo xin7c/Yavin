@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(
 
 from common.pages.SearchPage import *
 from common.pages.VideoRecorderPage import *
-from common.pages.HomePage import *
+from common.pages.HomePage_old import *
 from common.app.app_control import restart_app
 from common.login.login import login_if_needed
 

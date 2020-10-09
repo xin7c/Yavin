@@ -11,7 +11,7 @@ from common.popup.featurelist_popup import *
 from airtest.core.android import Android
 from common.pages.SearchPage import *
 from common.pages.UpLivePage import *
-from common.pages.HomePage import *
+from common.pages.HomePage_old import *
 
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 android = Android()

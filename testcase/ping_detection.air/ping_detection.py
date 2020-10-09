@@ -8,7 +8,7 @@ from common.app.app_control import restart_app
 from common.login.login import login_if_needed
 from common.popup.featurelist_popup import featurelist_popup_window
 from airtest.core.api import *
-from common.pages.HomePage import HomePage
+from common.pages.HomePage_old import HomePage
 from common.pages.MePage import MePage
 from common.pages.SettingPage import SettingPage
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco

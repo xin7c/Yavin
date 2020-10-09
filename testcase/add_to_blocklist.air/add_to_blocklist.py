@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 
-from common.pages.HomePage import HomePage
+from common.pages.HomePage_old import HomePage
 from common.pages.OtherPage import OtherBasePage
 from airtest.core.api import *
 from airtest.core.helper import log

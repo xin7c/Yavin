@@ -15,6 +15,26 @@ HomePage:
   username: admin@liveme.com
   password: liveme060
 
+  # 顶部导航栏按钮
+  ID_SEARCH: ':id/home_search_img'
+  # 顶部导航总tab_id名字
+  ID_HOMEPAGE_TITLE: ':id/home_tab_title'
+  TEXT_MEETUP: 'Meetup'
+  TEXT_FEATURED: 'Featured'
+  TEXT_NEW: 'New'
+  TEXT_NEARBY: 'Nearby'
+  TEXT_GAME: 'Game'
+  TEXT_VIDEOS: 'Videos'
+  ID_HOME_RANKING_BOARD: 'com.cmcm.live:id/home_rank_img'
+
+  # 底部导航栏按钮
+  ID_LIVE_ICON: ':id/uplive'
+  ID_HOME_PAGE_TAB: ':id/home_page'
+  ID_FOLLOW_TAB: ':id/home_tab_follow'
+  ID_MESSAGE_TAB: ':id/home_tab_message'
+  ID_ME_PAGE_TAB: ':id/me_page'
+
+
 SettingPage:
   ID_SETTINGS_ENTER: ':id/setting_img'
   ID_SETTINGS_LEFT: ':id/left_area'
@@ -23,6 +43,19 @@ SettingPage:
 
 LoginPage:
   aaa: aaa
+
+PrepareLivePage:
+  ID_LIVE_TITLE: ':id/edt_video_title'
+  ID_LIVE_COVER: ':id/edit_live_cover'
+  ID_TOPIC: ':id/topic_arrow'
+  ID_BEAUTY_ICON: ':id/iv_beauty'
+  ID_START_LIVE: ':id/txt_video_start_live'
+
+LIVE_PAGE:
+
+
+
+
 
 permission:
   - "android.permission.RECORD_AUDIO"
