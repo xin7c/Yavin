@@ -52,3 +52,4 @@ if __name__ == '__main__':
     # sp.goto_network_ping()
     # sp.click1("lalala")
     print(sp.screen_size)
+    sp.right_swipe().left_swipe()

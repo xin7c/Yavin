@@ -60,3 +60,5 @@ permission:
   - "android.permission.RECORD_AUDIO"
   - "android.permission.ACCESS_BACKGROUND_LOCATION"
   - "android.permission.ACCESS_MEDIA_LOCATION"
+
+zk_hosts: '10.61.153.83:2182'
