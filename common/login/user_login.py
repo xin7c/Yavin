@@ -49,6 +49,10 @@ class LoginPage(BasePage):
         self.poco(self.page_ele_loc("ID_BTNTV")).click()
         self.poco(self.page_ele_loc("ID_ET_PASSWORD")).click()
         self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text("Love?cat:dog")
+
+        # 点击空白处收起键盘
+        self.poco.click([100 / self.screen_size[0], 100 / self.screen_size[1]])
+
         self.poco(self.page_ele_loc("ID_BTNTV")).click()
 
         self.remove_pop_windows()
@@ -98,8 +102,8 @@ if __name__ == '__main__':
     login_obj = LoginPage()
     login_obj.restart_app()
 
-    # login_obj.email_login()
-    login_obj.iphone_login()
+    login_obj.email_login()
+    # login_obj.iphone_login()
 
     setting_obj = SettingPage()
     setting_obj.logout()
