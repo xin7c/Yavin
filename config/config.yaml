@@ -18,6 +18,8 @@ HomePage:
 SettingPage:
   ID_SETTINGS_ENTER: ':id/setting_img'
   ID_SETTINGS_LEFT: ':id/left_area'
+  ID_ITEM_LOGOUT: ":id/item_logout"
+  ID_BUTTON1: ":id/button1"
   TEXT_FIRST_TAB: 'Account and security'
   TEXT_NETWORK_DIAGNOSIS: 'Network Diagnosis'
 
@@ -41,6 +43,19 @@ LoginPage:
 
   TEXT_AGREE: 'Agree'
   TEXT_GOOGLE: 'GOOGLE'
+
+  ID_CHECK_IN_CLOSE: ":id/check_in_close"
+
+
+
+AnchorPage:
+  ID_GAIN_BTN: "id/gain_btn"
+  ID_BONUS_CLOSE_BTN: "id/bonus_close_btn"
+  ID_UPLIVE: ":id/uplive"
+  ID_TXT_VIDEO_START_LIVE: ":id/txt_video_start_live"
+  ID_IMG_CLOSE: ":id/img_close"
+  ID_BUTTON1: ":id/button1"
+
 
 
 

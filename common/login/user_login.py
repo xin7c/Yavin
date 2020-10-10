@@ -28,20 +28,21 @@ class LoginPage(BasePage):
         # 协议界面是否存在
         self.agreement()
 
-        buttom_login_layout_more = self.poco(self.page_ele_loc("ID_BUTTOM_LOGIN_LAYOUT")).child(name=self.page_ele_loc("NAME_ANDROID_WIDGET_IMAGEVIEW"))
+        buttom_login_layout_more = self.poco(self.page_ele_loc("ID_BOTTOM_LOGIN_LAYOUT")).child(name=self.page_ele_loc("NAME_ANDROID_WIDGET_IMAGEVIEW"))
 
         if len(buttom_login_layout_more) == 3:
             # 点击【MORE】按钮
-            self.poco(self.page_ele_loc("ID_BUTTOM_LOGIN_LAYOUT")).child(name=self.page_ele_loc("NAME_ANDROID_WIDGET_IMAGEVIEW"))[2].click()
+            self.poco(self.page_ele_loc("ID_BOTTOM_LOGIN_LAYOUT")).child(name=self.page_ele_loc("NAME_ANDROID_WIDGET_IMAGEVIEW"))[2].click()
         else:
             pass
 
         # 点击邮箱登录
-        self.poco(self.page_ele_loc("ID_BUTTOM_LOGIN_LAYOUT")).child(
+        self.poco(self.page_ele_loc("ID_BOTTOM_LOGIN_LAYOUT")).child(
             name=self.page_ele_loc("NAME_ANDROID_WIDGET_IMAGEVIEW"))[3].click()
 
         #输入用户名密码
-        self.poco(self.page_ele_loc("ID_IV_CLEAR")).click()
+        if self.poco(self.page_ele_loc("ID_IV_CLEAR")).exists():
+            self.poco(self.page_ele_loc("ID_IV_CLEAR")).click()
         self.poco(self.page_ele_loc("ID_ET_EMAIL")).click()
         self.poco(self.page_ele_loc("ID_ET_EMAIL")).set_text("callmegood@fluxer.tv")
 
@@ -49,6 +50,8 @@ class LoginPage(BasePage):
         self.poco(self.page_ele_loc("ID_ET_PASSWORD")).click()
         self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text("Love?cat:dog")
         self.poco(self.page_ele_loc("ID_BTNTV")).click()
+
+        self.remove_pop_windows()
 
     def iphone_login(self):
         """
@@ -80,19 +83,24 @@ class LoginPage(BasePage):
             self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text("Liuxm2019!")
             self.poco(self.page_ele_loc("ID_BTNTV")).click()
 
-        # self.goto_setting_page
+            self.remove_pop_windows()
 
+    def remove_pop_windows(self):
 
+        # 每日奖励签到弹窗
+        sleep(10)
+        if self.poco(self.page_ele_loc("ID_CHECK_IN_CLOSE")).exists():
+            self.poco(self.page_ele_loc("ID_CHECK_IN_CLOSE")).click()
 
 
 if __name__ == '__main__':
     print(LoginPage().cls_name)
-    obj = LoginPage()
-    obj.restart_app()
+    login_obj = LoginPage()
+    login_obj.restart_app()
 
-    # obj.email_login()
-    obj.iphone_login()
+    # login_obj.email_login()
+    login_obj.iphone_login()
 
     setting_obj = SettingPage()
-    setting_obj.go_me_page().goto_setting_page().logout()
+    setting_obj.logout()
 

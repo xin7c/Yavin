@@ -1,6 +1,7 @@
 # -*- encoding=utf8 -*
 import sys
 import os
+import logging
 
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from airtest.core.api import sleep, assert_equal
@@ -17,6 +18,7 @@ class SettingPage(BasePage):
         点击跳转setting页
         :return:
         """
+        logging.info("跳转setting页...")
         self.find_click(self.page_ele_loc("ID_SETTINGS_ENTER"))
         # self.poco(self.page_ele_loc("ID_SETTINGS_ENTER")).click()
         sleep(2)
@@ -43,6 +45,18 @@ class SettingPage(BasePage):
         assert_equal("setting_page_instance", "setting_page_instance", "断言setting_page_instance")
         return self
 
+    def logout(self):
+        """
+        点击登出按钮，退出账号
+        :return:
+        """
+        logging.info("退出登录...")
+        self.go_me_page().goto_setting_page()
+        self.up_swipe()
+        self.poco(self.page_ele_loc("ID_ITEM_LOGOUT")).click()
+        self.poco(self.page_ele_loc("ID_BUTTON1")).click()
+        return self
+
 
 if __name__ == '__main__':
     print(SettingPage().cls_name)
@@ -51,4 +65,4 @@ if __name__ == '__main__':
     print(sp.in_current_page())
     # sp.goto_network_ping()
     # sp.click1("lalala")
-    print(sp.screen_size)
+    # print(sp.screen_size)
