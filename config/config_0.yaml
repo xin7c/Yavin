@@ -1,6 +1,6 @@
 # 配置文件
 
-package_name: com.cmcm.live
+package_name: com.limin.live
 main_phone : "Android://127.0.0.1:5037/"
 
 android_devices:
@@ -14,23 +14,6 @@ BasePage:
 HomePage:
   username: admin@liveme.com
   password: liveme060
-  # 顶部导航栏按钮
-  ID_SEARCH: ':id/home_search_img'
-  # 顶部导航总tab_id名字
-  ID_HOMEPAGE_TITLE: ':id/home_tab_title'
-  TEXT_MEETUP: 'Meetup'
-  TEXT_FEATURED: 'Featured'
-  TEXT_NEW: 'New'
-  TEXT_NEARBY: 'Nearby'
-  TEXT_GAME: 'Game'
-  TEXT_VIDEOS: 'Videos'
-  ID_HOME_RANKING_BOARD: 'com.cmcm.live:id/home_rank_img'
-  # 底部导航栏按钮
-  ID_LIVE_ICON: ':id/uplive'
-  ID_HOME_PAGE_TAB: ':id/home_page'
-  ID_FOLLOW_TAB: ':id/home_tab_follow'
-  ID_MESSAGE_TAB: ':id/home_tab_message'
-  ID_ME_PAGE_TAB: ':id/me_page'
 
 SettingPage:
   ID_SETTINGS_ENTER: ':id/setting_img'
@@ -40,39 +23,6 @@ SettingPage:
 
 LoginPage:
   aaa: aaa
-
-PrepareLivePage:
-  ID_LIVE_TITLE: ':id/edt_video_title'
-  ID_LIVE_COVER: ':id/edit_live_cover'
-  ID_TOPIC: ':id/topic_arrow'
-  ID_BEAUTY_ICON: ':id/iv_beauty'
-  ID_START_LIVE: ':id/txt_video_start_live'
-  ID_CLOSE: ":id/img_close"
-  # multi_beam模式下元素
-  ID_MULTI_AUDIO_CHOOSER: ":id/cb_nine_beam_audio"
-  ID_NINE_MODE_TWO: ":id/nine_mode_two"
-  ID_NINE_MODE_FOURE: ":id/nine_mode_four"
-  ID_NINE_MODE_SIX: ":id/nine_mode_six"
-  ID_NINE_MODE_NINE: ":id/nine_mode_nine"
-  # 语音房间AUDIO
-  ID_AUDIO_TAG: ":id/tag_txt"
-  ID_AUDIO_CHANGE_TILTLE: ":id/audio_change_title"
-
-LIVE_PAGE:
-  ID_CLOSE: ":id/img_close"
-  TEXT_SWIPE_UP_GUIDE: "Swipe up to the next broadcast"
-  # continue
-  ID_BUTTON2: ":id/button2"
-  # finish
-  ID_BUTTON1: ":id/button1"
-  # 主播端底部按钮
-  ID_DETAIL_DATA: ":id/btn_live_detail_data"
-  ID_WHISPER_MSG: ":id/btn_whisper"
-  ID_MORE_ARROW_BUTTON: ":id/arrow_button"
-  ID_DAILY_TASK: ":id/layout_daily_task"
-  ID_MASK: ":id/layout_mask"
-  ID_GAMEOUT_PK: ":id/gameout_button"
-  ID_BEAM_APPLY: ":id/normal_apply_ico_bg"
 
 permission:
   - "android.permission.RECORD_AUDIO"
