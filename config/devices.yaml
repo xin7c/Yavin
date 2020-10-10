@@ -1,3 +1,4 @@
+# 对应common/app/config.py中硬编码存储的配置信息
 user_device_map:
     # SAMSUNG  SM_G9600
     50354b4659543398:
