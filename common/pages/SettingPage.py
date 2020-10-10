@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from airtest.core.api import sleep, assert_equal
 from common.pages.BasePage import BasePage
-
+from config.config import Config
 
 class SettingPage(BasePage):
     """
@@ -45,11 +45,13 @@ class SettingPage(BasePage):
 
 
 if __name__ == '__main__':
-    print(SettingPage().cls_name)
-    sp = SettingPage()
+    # print(SettingPage().cls_name)
+    # sp = SettingPage()
     # sp.goto_setting_page()
-    print(sp.in_current_page())
+    # print(sp.in_current_page())
     # sp.goto_network_ping()
     # sp.click1("lalala")
-    print(sp.screen_size)
-    sp.right_swipe().left_swipe()
+
+    # print(sp.screen_size)
+    # sp.right_swipe().left_swipe()
+    print(Config.get_yaml(yaml_name="config.yaml").get("package_name", None) + ':id/setting_img')
