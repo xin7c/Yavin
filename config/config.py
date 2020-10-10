@@ -8,6 +8,7 @@
 
 import yaml
 import os
+from collections import defaultdict
 
 
 def page_ele_loc(self, key: str) -> str:
@@ -36,7 +37,7 @@ class Config(object):
     """
 
     @staticmethod
-    def get_yaml() -> any:
+    def get_yaml(yaml_name: str = "config.yaml") -> any:
         """
         获取当前路径
         current_path = os.path.abspath(".")
@@ -47,7 +48,7 @@ class Config(object):
         # print("***获取yaml文件数据***")
         parent_dir = os.path.dirname(os.path.abspath(__file__))
         # current_path = os.path.abspath(".")
-        yaml_file = os.path.join(parent_dir, "config.yaml")
+        yaml_file = os.path.join(parent_dir, yaml_name)
         with open(yaml_file, 'r', encoding="utf-8") as file:
             file_data = file.read()
         # 将字符串转化为字典或列表
@@ -73,9 +74,30 @@ class Config(object):
         base_page_element = self.get_yaml().get("BasePage", None)[element]
         return ''.join((package_name, base_page_element))
 
+    @property
+    def get_user_device_map(self):
+        user_device_map = self.get_yaml(yaml_name="devices.yaml")
+        return user_device_map.get("user_device_map")
+
+    def get_info_by_sn(self, sn: str):
+        """
+        :param sn: 传入设备号
+        :return: 返回字典
+        """
+        sn_data = self.get_user_device_map.get(sn, None)
+        if sn_data is None:
+            print("获取设备配置信息为空")
+            return None
+        info = defaultdict()
+        info["login_type"] = sn_data.get("login_type", None)
+        info["username"] = sn_data.get("username", None)
+        info["password"] = sn_data.get("password", None)
+        return info
+
 
 if __name__ == '__main__':
     current_path = os.path.abspath(".")
     yaml_path = os.path.join(current_path, "config.yaml")
     data = Config.get_yaml()
     print(f"data ---> {data['HomePage']['username']}")
+    print(Config().get_info_by_sn("50354b4659543398").get("username"))

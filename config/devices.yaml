@@ -1,0 +1,79 @@
+user_device_map:
+    # SAMSUNG  SM_G9600
+    50354b4659543398:
+        login_type: email
+        username: kewltest001@163.com
+        password: qwertyuiop123
+    GSLDU16622008794:
+        login_type: email
+        username: taiwoo0416@gmail.com
+        password: shishihou2011
+    CVH7N16109000171:
+        login_type: email
+        username: xs001@fluxer.tv
+        password: qwertyuiop123
+    # 华为
+    T7G0216117000139:
+        login_type: email
+        username: xs010@fluxer.tv
+        password: qwertyuiop123
+#    # samsung note5 此设备号重复
+#    1115fb911fc22704:
+#        login_type: email
+#        username: twtest@gmail.com
+#        password: qwerty
+    # 华为
+    EJLDU16B29007596:
+        login_type: phone
+        username: 18732182780
+        password: 921118715mz
+    # Pixel2 XL
+    803KPGS1615839:
+        login_type: email
+        username: xs012@fluxer.tv
+        password: qwertyuiop123
+    # HUAWEI Mate8
+    5LM0216122006648:
+        login_type: email
+        username: xs021@fluxer.tv
+        password: qwertyuiop123
+    # 三星 Galaxy
+    9884b333374c305043:
+        login_type: email
+        username: xs022@fluxer.tv
+        password: qwertyuiop123
+    # HUAWEI nova 3i
+    AGY7N19411004573:
+        login_type: email
+        username: xs023@fluxer.tv
+        password: qwertyuiop123
+    # 三星 Galaxy Note5
+    1115fb911fc22704:
+        login_type: email
+        username: xs024@fluxer.tv
+        password: qwertyuiop123
+    # HUAWEI Y9 2019
+    RFXNW19129000008:
+        login_type: email
+        username: xs025@fluxer.tv
+        password: qwertyuiop123
+    # 小米
+    4ca397077cf5:
+        login_type: email
+        username: xs026@fluxer.tv
+        password: qwertyuiop123
+    # LG
+    LGH872PR4e8a6d8e:
+        login_type: phone
+        username: 18732182780
+        password: 921118715mz
+    # LG
+    02c7e5aad023f5de:
+        login_type: email
+        username: taiwoo0416@gmail.com
+        password: shishihou2011
+    # LN
+    418dc312:
+        login_type: email
+        username: kewltest001@163.com
+        password: qwertyuiop123
