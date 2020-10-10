@@ -75,16 +75,30 @@ class Config(object):
         return ''.join((package_name, base_page_element))
 
     @property
-    def get_user_device_map(self):
+    def _get_user_device_map(self):
+        """
+        读取config/devices.yaml
+        :return:
+        """
         user_device_map = self.get_yaml(yaml_name="devices.yaml")
         return user_device_map.get("user_device_map")
 
+    @property
+    def get_devices_list(self):
+        """
+        读取config/devices.yaml
+        :return: config/devices.yaml中的设备号列表
+        """
+        devices_list = [x for x in self._get_user_device_map]
+        return devices_list
+
     def get_info_by_sn(self, sn: str):
         """
+        读取config/devices.yaml
         :param sn: 传入设备号
         :return: 返回字典
         """
-        sn_data = self.get_user_device_map.get(sn, None)
+        sn_data = self._get_user_device_map.get(sn, None)
         if sn_data is None:
             print("获取设备配置信息为空")
             return None
@@ -101,3 +115,4 @@ if __name__ == '__main__':
     data = Config.get_yaml()
     print(f"data ---> {data['HomePage']['username']}")
     print(Config().get_info_by_sn("50354b4659543398").get("username"))
+    print(Config().get_devices_list)
