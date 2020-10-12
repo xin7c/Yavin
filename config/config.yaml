@@ -93,7 +93,7 @@ PrepareLivePage:
   ID_AUDIO_TAG: ":id/tag_txt"
   ID_AUDIO_CHANGE_TILTLE: ":id/audio_change_title"
 
-LIVE_PAGE:
+LivePage:
   ID_CLOSE: ":id/img_close"
   TEXT_SWIPE_UP_GUIDE: "Swipe up to the next broadcast"
   # continue
