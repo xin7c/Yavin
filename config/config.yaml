@@ -24,7 +24,7 @@ HomePage:
   TEXT_NEARBY: 'Nearby'
   TEXT_GAME: 'Game'
   TEXT_VIDEOS: 'Videos'
-  ID_HOME_RANK_IMG: 'com.cmcm.live:id/home_rank_img'
+  ID_HOME_RANK_IMG: ':id/home_rank_img'
   # 底部导航栏按钮
   ID_UPLIVE: ':id/uplive'
   ID_HOME_PAGE: ':id/home_page'
@@ -75,11 +75,11 @@ AnchorPage:
 
 
 PrepareLivePage:
-  ID_LIVE_TITLE: ':id/edt_video_title'
-  ID_LIVE_COVER: ':id/edit_live_cover'
-  ID_TOPIC: ':id/topic_arrow'
-  ID_BEAUTY_ICON: ':id/iv_beauty'
-  ID_START_LIVE: ':id/txt_video_start_live'
+  ID_EDT_VIDEO_LIVE_TITLE: ':id/edt_video_title'
+  ID_EDIT_LIVE_COVER: ':id/edit_live_cover'
+  ID_TOPIC_ARROW: ':id/topic_arrow'
+  ID_IV_BEAUTY: ':id/iv_beauty'
+  ID_TXT_VIDEO_START_LIVE: ':id/txt_video_start_live'
   ID_IMG_CLOSE: ":id/img_close"
   # multi_beam模式下元素
   ID_CB_NINE_BEAM_AUDIO: ":id/cb_nine_beam_audio"

@@ -70,13 +70,21 @@ class LivePage(BasePage):
         return self
     
     def close_live_anchor(self):
+        """
+        关闭直播，判断关闭直播引导是否存在，存在把引导关闭，判断关闭直播时二次确认弹窗是否存在
+        :return:
+        """
         self.find_click(self.page_ele_loc("ID_IMG_CLOSE"))
         sleep(2)
+        # 关闭直播引导动画是否存在
         if self.close_live_guide_is_exist():
             self.close_live_guide()
             sleep(2)
+        # 关闭直播时是否弹出了二次确认弹窗
         if self.close_live_confirm_popup_exist():
             self.close_live_finish()
             sleep(3)
-        # assert_equal(self.in_current_page(), False, "直播关闭成功")
+        # 点击直播结束页面关闭按钮
+        self.find_click(self.page_ele_loc("ID_IMG_CLOSE"))
+        assert_equal(self.in_current_page(), False, "直播关闭成功")
         return self
