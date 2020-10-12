@@ -1,7 +1,7 @@
 # -*- encoding=utf8 -*-
 __author__ = 'wanglimin'
 
-from common.login.UserLogin import *
+from common.login.user_login import *
 from common.app.config import user_device_map
 from airtest.core.api import *
 
@@ -15,7 +15,7 @@ def login():
     login_type = user_device_map[sn]['login_type']
     username = user_device_map[sn]['username']
     password = user_device_map[sn]['password']
-    user = LoginUser(username, password)
+    user = LoginPage(username, password)
     if login_type == 'email':
         user.email_login()
     elif login_type == 'google':
@@ -29,5 +29,9 @@ def login():
 
 
 def login_if_needed():
-    if poco(text="Agree").exists() or poco(text="PHONE").exists():
-        login()
+    # from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+    # poco = AndroidUiautomationPoco(use_airtest_input=True,
+    #                         screenshot_each_action=False)
+    # if poco(text="Agree").exists() or poco(text="PHONE").exists():
+    #     login()
+    pass

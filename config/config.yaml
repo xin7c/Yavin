@@ -35,11 +35,46 @@ HomePage:
 SettingPage:
   ID_SETTINGS_ENTER: ':id/setting_img'
   ID_SETTINGS_LEFT: ':id/left_area'
+  ID_ITEM_LOGOUT: ":id/item_logout"
+  ID_BUTTON1: ":id/button1"
   TEXT_FIRST_TAB: 'Account and security'
   TEXT_NETWORK_DIAGNOSIS: 'Network Diagnosis'
 
 LoginPage:
-  aaa: aaa
+  ID_BOTTOM_LOGIN_LAYOUT: ':id/bottom_login_layout'
+  ID_CLEAR_ID: ':id/iv_clear'
+  ID_IV_CLEAR: ':id/iv_clear'
+  ID_ET_EMAIL: ':id/et_email'
+  ID_ET_PASSWORD: ':id/et_password'
+  ID_BTNTV: ":id/btnTv"
+  NAME_ANDROID_WIDGET_IMAGEVIEW: 'android.widget.ImageView'
+
+  ID_TITLE: ":id/title"
+  ID_TEXT_LOGIN: ":id/text_login"
+  ID_ET_PHONE: ":id/et_phone"
+  ID_LAYOUT_PHONE_ACCOUNT_PASSWORD: "id/layout_phone_account_password"
+  ID_TV_COUNTRY_CODE: ":id/tv_country_code"
+  TEXT_CHINA_PHONE_CODE: "86"
+  TEXT_CHINA: "中国"
+  TEXT_PHONE: "PHONE"
+
+  TEXT_AGREE: 'Agree'
+  TEXT_GOOGLE: 'GOOGLE'
+
+  ID_CHECK_IN_CLOSE: ":id/check_in_close"
+
+
+
+AnchorPage:
+  ID_GAIN_BTN: "id/gain_btn"
+  ID_BONUS_CLOSE_BTN: "id/bonus_close_btn"
+  ID_UPLIVE: ":id/uplive"
+  ID_TXT_VIDEO_START_LIVE: ":id/txt_video_start_live"
+  ID_IMG_CLOSE: ":id/img_close"
+  ID_BUTTON1: ":id/button1"
+
+
+
 
 PrepareLivePage:
   ID_LIVE_TITLE: ':id/edt_video_title'
