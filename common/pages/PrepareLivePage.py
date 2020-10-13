@@ -28,7 +28,7 @@ class PrepareLivePage(BasePage):
        设置直播标题，并删除默认的标题内容
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_LIVE_TITLE"))
+        self.find_click(self.page_ele_loc("ID_EDT_VIDEO_LIVE_TITLE"))
         sleep(2)
         return self
     
@@ -37,7 +37,7 @@ class PrepareLivePage(BasePage):
         重新输入想要的标题内容
         :return:
         """
-        self.poco(self.page_ele_loc("ID_LIVE_TITLE")).set_text("我们hello哈哈134")
+        self.poco(self.page_ele_loc("ID_EDT_VIDEO_LIVE_TITLE")).set_text("AirTest UI AUTOMATION")
         sleep(4)
         return self
         
@@ -93,7 +93,7 @@ class PrepareLivePage(BasePage):
         选择好开播模式之后，点击go live进行开播
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_START_LIVE"))
+        self.find_click(self.page_ele_loc("ID_TXT_VIDEO_START_LIVE"))
         sleep(10)
         return self
         

@@ -21,34 +21,34 @@ class HomePage(BasePage):
         点击开播按钮进入准备直播页面
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_LIVE_ICON"))
+        self.find_click(self.page_ele_loc("ID_UPLIVE"))
         sleep(5)
         return self
     
     def goto_message_page(self):
         """
-        点击私信按钮进入message页面
+        从homepage页面点击私信按钮进入message页面
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_MESSAGE_TAB"))
+        self.find_click(self.page_ele_loc("ID_TAB_MESSAGE"))
         sleep(5)
         return self
     
     def goto_me_page(self):
         """
-        进入个人中心页面
+        从homepage页面进入个人中心页面
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_ME_PAGE_TAB"))
+        self.find_click(self.page_ele_loc("ID_ME_PAGE"))
         sleep(5)
         return self
     
     def goto_follow_page(self):
         """
-        进入Follow页面
+        从homepage页面进入Follow页面
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_FOLLOW_TAB"))
+        self.find_click(self.page_ele_loc("ID_HOME_TAB_FOLLOW"))
         sleep(5)
         return self
         
@@ -57,7 +57,7 @@ class HomePage(BasePage):
         回到主页面
         :return:
         """
-        self.find_click(self.page_ele_loc("ID_HOME_PAGE_TAB"))
+        self.find_click(self.page_ele_loc("ID_HOME_PAGE"))
         sleep(5)
         return self
     
@@ -69,7 +69,6 @@ class HomePage(BasePage):
         self.find_text(self.page_ele_loc("TEXT_NEW"))
         sleep(5)
         return self
-    
 
 
 if __name__ == '__main__':
