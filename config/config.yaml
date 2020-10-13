@@ -41,6 +41,8 @@ SettingPage:
   TEXT_NETWORK_DIAGNOSIS: 'Network Diagnosis'
 
 LoginPage:
+  ID_TXT_USER_NAME: ":id/txt_user_name"
+
   ID_BOTTOM_LOGIN_LAYOUT: ':id/bottom_login_layout'
   ID_CLEAR_ID: ':id/iv_clear'
   ID_IV_CLEAR: ':id/iv_clear'
