@@ -7,12 +7,17 @@ sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(
 from airtest.core.api import sleep, assert_equal, text
 from common.pages.BasePage import BasePage
 from common.pages.SettingPage import SettingPage
-
+from config.config import Config
 
 class LoginPage(BasePage):
     """
     逻辑层
     """
+    def __init__(self, username, password):
+        BasePage.__init__(self)
+        self.username = username
+        self.password = password
+
     def agreement(self):
         """
         协议界面是否存在
@@ -44,11 +49,11 @@ class LoginPage(BasePage):
         if self.poco(self.page_ele_loc("ID_IV_CLEAR")).exists():
             self.poco(self.page_ele_loc("ID_IV_CLEAR")).click()
         self.poco(self.page_ele_loc("ID_ET_EMAIL")).click()
-        self.poco(self.page_ele_loc("ID_ET_EMAIL")).set_text("callmegood@fluxer.tv")
+        self.poco(self.page_ele_loc("ID_ET_EMAIL")).set_text(self.username)
 
         self.poco(self.page_ele_loc("ID_BTNTV")).click()
         self.poco(self.page_ele_loc("ID_ET_PASSWORD")).click()
-        self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text("Love?cat:dog")
+        self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text(self.password)
 
         # 点击空白处收起键盘
         self.poco.click([100 / self.screen_size[0], 100 / self.screen_size[1]])
@@ -81,10 +86,10 @@ class LoginPage(BasePage):
                         self.up_swipe()
 
             logging.info("开始输入手机号...")
-            self.poco(self.page_ele_loc("ID_ET_PHONE")).set_text("13466367252")
+            self.poco(self.page_ele_loc("ID_ET_PHONE")).set_text(self.username)
             self.poco(self.page_ele_loc("ID_BTNTV")).click()
             logging.info("开始输入密码...")
-            self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text("Liuxm2019!")
+            self.poco(self.page_ele_loc("ID_ET_PASSWORD")).set_text(self.password)
             self.poco(self.page_ele_loc("ID_BTNTV")).click()
 
             self.remove_pop_windows()
@@ -98,8 +103,8 @@ class LoginPage(BasePage):
 
 
 if __name__ == '__main__':
-    print(LoginPage().cls_name)
-    login_obj = LoginPage()
+    # print(LoginPage().cls_name)
+    login_obj = LoginPage('callmegood@fluxer.tv', 'Love?cat:dog')
     login_obj.restart_app()
 
     login_obj.email_login()
