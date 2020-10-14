@@ -37,6 +37,12 @@ def goto_single_live():
     # 关闭直播
     live_page.close_live_anchor()
 
+  
+def home_goto_multi_two_live():
+    pass
+
+
+
 
 goto_single_live()
 

@@ -10,6 +10,7 @@ import os
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from airtest.core.api import sleep, assert_equal
 from common.pages.BasePage import BasePage
+from config.config import Config
 
 
 class HomePage(BasePage):
@@ -18,11 +19,15 @@ class HomePage(BasePage):
     """
     def goto_prepare_live_page(self):
         """
-        点击开播按钮进入准备直播页面
+        点击开播按钮进入准备直播页面,首次开播时需要获取相机权限信息
         :return:
         """
         self.find_click(self.page_ele_loc("ID_UPLIVE"))
-        sleep(5)
+        # 获取相机权限系统弹窗allow元素id信息
+        camera_permission_id = Config.get_yaml().get("SystemPermission").get("NAME_PERMISSION_ALLOW_BUTTON")
+        while self.poco(camera_permission_id).exists():
+            self.find_click(camera_permission_id)
+            sleep(2)
         return self
     
     def goto_message_page(self):
@@ -74,8 +79,8 @@ class HomePage(BasePage):
 if __name__ == '__main__':
     print(HomePage().cls_name)
     sp = HomePage()
-    # sp.goto_setting_page()
-    print(sp.goto_home_page())
-    # sp.goto_network_ping()
+    sp.goto_prepare_live_page()
+    # sp.goto_message_page()
+    # print(sp.goto_home_page())
     # sp.click1("lalala")
-    print(sp.screen_size)
+    # print(sp.screen_size)

@@ -10,6 +10,11 @@ android_devices:
 
 BasePage:
   ID_ME_PAGE: ':id/me_page'
+SystemPermission:
+  # 获取相机系统权限弹窗
+  NAME_PERMISSION_MESSAGE: "com.android.packageinstaller:id/permission_message"
+  NAME_PERMISSION_ALLOW_BUTTON: "com.android.packageinstaller:id/permission_allow_button"
+  NAMW_PERMISSION_DENY_BUTTON: "com.android.packageinstaller:id/permission_deny_button"
 
 HomePage:
   username: admin@liveme.com
