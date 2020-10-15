@@ -8,6 +8,7 @@ from airtest.core.api import sleep, assert_equal
 from common.pages.BasePage import BasePage
 from config.config import Config
 
+
 class SettingPage(BasePage):
     """
     逻辑层
