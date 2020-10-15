@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     sleep(10)
     live_obj = LivePage()
-    live_obj.close_live_anchor()
+    live_obj.close_live_anchor
 
     # 退出登录
     setting_obj = SettingPage()

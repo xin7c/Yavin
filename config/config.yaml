@@ -113,6 +113,10 @@ LivePage:
   ID_LAYOUT_MASK: ":id/layout_mask"
   ID_GAMEOUT_BUTTON: ":id/gameout_button"
   ID_NORMAL_APPLY_ICO_BG: ":id/normal_apply_ico_bg"
+  # 主播结束页面
+  ID_NEW_UPLIVE_END_CLOSE: ":id/new_uplive_end_close"
+  # 直播间review弹窗
+  ID_TET_CANCEL: "id/txt_cancel"
 
 permission:
   - "android.permission.RECORD_AUDIO"

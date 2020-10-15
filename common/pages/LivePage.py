@@ -8,7 +8,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-from airtest.core.api import sleep, assert_equal
+from airtest.core.api import sleep, assert_equal, assert_not_equal
 from common.pages.BasePage import BasePage
 
 
@@ -22,6 +22,17 @@ class LivePage(BasePage):
         :return:
         """
         return self.poco(self.page_ele_loc("ID_BTN_LIVE_DETAIL_DATA")).exists() or False
+    
+    def close_review_pop(self):
+        """
+        关闭开播开始几秒钟弹窗的review弹窗
+        :return:
+        """
+        if self.poco(self.page_ele_loc("ID_TET_CANCEL")).exists():
+            self.find_click(self.page_ele_loc("ID_TET_CANCEL"))
+        else:
+            return
+        return self
     
     def close_live(self):
         """
@@ -59,8 +70,6 @@ class LivePage(BasePage):
         :return:
         """
         self.find_click(self.page_ele_loc("ID_BUTTON1"))
-        self.find_click(self.page_ele_loc("ID_CLOSE"))
-
         return self
     
     def close_live_continue(self):
@@ -71,6 +80,7 @@ class LivePage(BasePage):
         self.find_click(self.page_ele_loc("ID_BUTTON2"))
         return self
     
+    @property
     def close_live_anchor(self):
         """
         关闭直播，判断关闭直播引导是否存在，存在把引导关闭，判断关闭直播时二次确认弹窗是否存在
@@ -87,6 +97,14 @@ class LivePage(BasePage):
             self.close_live_finish()
             sleep(3)
         # 点击直播结束页面关闭按钮
-        self.find_click(self.page_ele_loc("ID_IMG_CLOSE"))
-        assert_equal(self.in_current_page(), False, "直播关闭成功")
+        sleep(10)
+        self.find_click(self.page_ele_loc("ID_NEW_UPLIVE_END_CLOSE"))
+        sleep(2)
+        # print("噶哈哈哈")
+        assert_not_equal(self.in_current_page(), True, "直播关闭成功")
         return self
+
+  
+if __name__ == '__main__':
+    lp = LivePage()
+    lp.close_live_anchor

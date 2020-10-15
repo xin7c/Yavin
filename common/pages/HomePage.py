@@ -25,6 +25,13 @@ class HomePage(BasePage):
             return True
         else:
             return False
+        
+    def up_live_icon_is_exists(self):
+        """
+        home页直播按钮是否存在，返回bool
+        :return:
+        """
+        return self.poco(self.page_ele_loc("ID_UPLIVE")).exists() or False
 
     def goto_prepare_live_page(self):
         """
