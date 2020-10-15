@@ -59,6 +59,8 @@ class LivePage(BasePage):
         :return:
         """
         self.find_click(self.page_ele_loc("ID_BUTTON1"))
+        self.find_click(self.page_ele_loc("ID_CLOSE"))
+
         return self
     
     def close_live_continue(self):

@@ -17,6 +17,15 @@ class HomePage(BasePage):
     """
     逻辑层
     """
+    def in_appin(self):
+        """
+        判断是否在app内，如果在app内，可以不在需要进行登录操作
+        """
+        if self.poco(self.page_ele_loc("ID_UPLIVE")).exists():
+            return True
+        else:
+            return False
+
     def goto_prepare_live_page(self):
         """
         点击开播按钮进入准备直播页面,首次开播时需要获取相机权限信息

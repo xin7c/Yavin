@@ -41,6 +41,8 @@ class BasePage(object, metaclass=Base):
         device_num = len(device_list) >= 1
         # print(device_list)
         assert_equal(device_num, True, "设备连接数至少>1")
+        self.device_list = device_list
+
         # 获取poco实例
         self.poco = AndroidUiautomationPoco(use_airtest_input=True,
                                             screenshot_each_action=False)
@@ -227,3 +229,4 @@ if __name__ == '__main__':
     print(devices)
     print(b.cls_name)
     # b.click("com.cmcm.live:id/me_page")
+    b.restart_app()
