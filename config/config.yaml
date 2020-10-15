@@ -10,6 +10,11 @@ android_devices:
 
 BasePage:
   ID_ME_PAGE: ':id/me_page'
+SystemPermission:
+  # 获取相机系统权限弹窗
+  NAME_PERMISSION_MESSAGE: "com.android.packageinstaller:id/permission_message"
+  NAME_PERMISSION_ALLOW_BUTTON: "com.android.packageinstaller:id/permission_allow_button"
+  NAMW_PERMISSION_DENY_BUTTON: "com.android.packageinstaller:id/permission_deny_button"
 
 HomePage:
   username: admin@liveme.com
@@ -41,6 +46,8 @@ SettingPage:
   TEXT_NETWORK_DIAGNOSIS: 'Network Diagnosis'
 
 LoginPage:
+  ID_TXT_USER_NAME: ":id/txt_user_name"
+
   ID_BOTTOM_LOGIN_LAYOUT: ':id/bottom_login_layout'
   ID_CLEAR_ID: ':id/iv_clear'
   ID_IV_CLEAR: ':id/iv_clear'
@@ -91,7 +98,7 @@ PrepareLivePage:
   ID_TAG_TXT: ":id/tag_txt"
   ID_AUDIO_CHANGE_TILTLE: ":id/audio_change_title"
 
-LIVE_PAGE:
+LivePage:
   ID_IMG_CLOSE: ":id/img_close"
   TEXT_SWIPE_UP_GUIDE: "Swipe up to the next broadcast"
   # continue
@@ -106,6 +113,10 @@ LIVE_PAGE:
   ID_LAYOUT_MASK: ":id/layout_mask"
   ID_GAMEOUT_BUTTON: ":id/gameout_button"
   ID_NORMAL_APPLY_ICO_BG: ":id/normal_apply_ico_bg"
+  # 主播结束页面
+  ID_NEW_UPLIVE_END_CLOSE: ":id/new_uplive_end_close"
+  # 直播间review弹窗
+  ID_TET_CANCEL: "id/txt_cancel"
 
 permission:
   - "android.permission.RECORD_AUDIO"

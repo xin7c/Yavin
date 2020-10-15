@@ -21,7 +21,7 @@ class PrepareLivePage(BasePage):
         检测准备直播按钮是否存在来判断是否在准备直播页面
         :return:
         """
-        return self.poco(self.page_ele_loc("ID_START_LIVE")).exists() or False
+        return self.poco(self.page_ele_loc("ID_TXT_VIDEO_START_LIVE")).exists() or False
     
     def click_live_title(self):
         """
@@ -94,7 +94,7 @@ class PrepareLivePage(BasePage):
         :return:
         """
         self.find_click(self.page_ele_loc("ID_TXT_VIDEO_START_LIVE"))
-        sleep(10)
+        sleep(15)
         return self
         
 
@@ -102,8 +102,8 @@ if __name__ == '__main__':
     print(PrepareLivePage().cls_name)
     sp = PrepareLivePage()
     # sp.goto_setting_page()
-    print(sp.click_go_live())
+    # print(sp.click_go_live())
     # sp.goto_network_ping()
     # sp.click1("lalala")
-    print(sp.screen_size)
-    print()
+    # print(sp.screen_size)
+    print(sp.in_current_page())

@@ -78,3 +78,8 @@ user_device_map:
         login_type: email
         username: kewltest001@163.com
         password: qwertyuiop123
+    # VIVO
+    89d21446:
+        login_type: email
+        username: kewltest001@163.com
+        password: qwertyuiop123

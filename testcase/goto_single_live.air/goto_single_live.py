@@ -34,8 +34,15 @@ def goto_single_live():
     pre_live_page.click_go_live()
     sleep(10)
     assert_equal(LivePage().in_current_page(), True, "主播直播数据按钮存在")
+    live_page.close_review_pop()
     # 关闭直播
-    live_page.close_live_anchor()
+    live_page.close_live_anchor
+
+
+def home_goto_multi_two_live():
+    pass
+
+
 
 
 goto_single_live()
