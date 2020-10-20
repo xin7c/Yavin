@@ -59,15 +59,16 @@ class BasePage(object, metaclass=Base):
         print("[BasePage] init...")
         self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.main_phone = self.config.get("main_phone")
-        self.device_list = []
-        for i in range(len(device_list)):
-            self.device = connect_device(self.main_phone + device_list[i][0])
-            # print(self.main_phone + device_list[i][0])
-            self.device_list.append(self.device)
-            auto_setup(
-                basedir=self.root_dir,
-                devices=[self.main_phone + device_list[i][0]],
-                logdir=True)
+        # auto_setup(basedir=self.root_dir, logdir=True)
+        # self.device_list = []
+        # for i in range(len(device_list)):
+        #     self.device = connect_device(self.main_phone + device_list[i][0])
+        #     # print(self.main_phone + device_list[i][0])
+        #     self.device_list.append(self.device)
+        #     auto_setup(
+        #         basedir=self.root_dir,
+        #         devices=[self.main_phone + device_list[i][0]],
+        #         logdir=True)
 
     def __getattr__(self, attr):
         """

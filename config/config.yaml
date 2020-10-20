@@ -4,9 +4,10 @@ package_name: com.cmcm.live
 main_phone : "Android://127.0.0.1:5037/"
 
 android_devices:
-  - android_1: Android://127.0.0.1:5037/CB5A2AE8LW
-  - android_2: Android://127.0.0.1:5037/T7G0216117000139
-  - android_3: Android://127.0.0.1:5037/50354b4659543398-3
+  - CB5A2AE8LW
+  - 5LM0216122006648
+  - all
+#  - T7G0216117000139
 
 BasePage:
   ID_ME_PAGE: ':id/me_page'
