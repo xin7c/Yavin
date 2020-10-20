@@ -40,8 +40,8 @@ class BasePage(object, metaclass=Base):
         print(f"device_list: {device_list}")
         device_num = len(device_list) >= 1
         # print(device_list)
-        assert_equal(device_num, True, "设备连接数至少>1")
-        self.device_list = device_list
+        assert_equal(device_num, True, "设备连接数至少>=1")
+        # self.device_list = device_list
 
         # 获取poco实例
         self.poco = AndroidUiautomationPoco(use_airtest_input=True,

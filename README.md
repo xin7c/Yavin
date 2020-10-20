@@ -56,3 +56,8 @@ docker run -d \
 --privileged zookeeper
 
 ```
+
+## 配置adb
+/Applications/AirtestIDE.app/Contents/MacOS/airtest/core/android/static/adb/mac
+mv adb adb_bak
+ln -s ~/Library/Android/sdk/platform-tools/adb adb

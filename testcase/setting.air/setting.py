@@ -5,6 +5,7 @@
 @file:setting.py
 @time:2020/09/24
 """
+from logging import log
 
 __author__ = "xuchu"
 __title__ = "设置页面测试用例"
@@ -26,8 +27,8 @@ def setting_1():
     # print(Config.get_yaml().get("package_name", None))
     # assert_equal(1, 1, "1=1")
     sp1.go_me_page().snap("到个人主页")  # .back().back().back().start_app().go_me_page()
-    # sp1.goto_setting_page().goto_network_ping().back().back()
-    # sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦~")
+    sp1.goto_setting_page().goto_network_ping().back().back()
+    sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦~")
 
 
 setting_1()
