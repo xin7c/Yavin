@@ -141,3 +141,4 @@ html_logs/
 *.pyc
 
 data.json
+.DS_Store
