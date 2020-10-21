@@ -165,8 +165,8 @@ def load_json_data(air, run_all):
 
 def clear_log_dir(air):
     """"
-        清理log文件夹 test_blackjack.air/log
-        Remove folder test_blackjack.air/log
+        清理log文件夹 setting.air/log
+        Remove folder setting.air/log
     """
     log = os.path.join(os.getcwd(), 'log', air, 'log')
     print('clear_log_dir --- ', log)
@@ -176,8 +176,8 @@ def clear_log_dir(air):
 
 def get_log_dir(device, air):
     """"
-        在 test_blackjack.air/log/ 文件夹下创建每台设备的运行日志文件夹
-        Create log folder based on device name under test_blackjack.air/log/
+        在 setting.air/log/ 文件夹下创建每台设备的运行日志文件夹
+        Create log folder based on device name under setting.air/log/
     """
     log_dir = os.path.join(file_path, 'log', air, device.replace(".", "_").replace(':', '_'))
     # print(log_dir, "get_log_dir")
