@@ -2,8 +2,9 @@
 # -*- coding: UTF-8 -*-
 """
 @author:xuchu
-@file:run.py
+@file:try_run.py
 @time:2020/09/24
+这是一个试验文件
 """
 import multiprocessing
 import os
