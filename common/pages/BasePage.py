@@ -174,6 +174,10 @@ class BasePage(object, metaclass=Base):
     def back(self):
         keyevent("BACK")
         print('keyevent(BACK")')
+        log('返回按键 keyevent(BACK")',
+            timestamp=time.time(),
+            desc='返回按键 keyevent(BACK")',
+            snapshot=True)
         return self
 
     def go_me_page(self):
@@ -182,7 +186,6 @@ class BasePage(object, metaclass=Base):
         :return: poco
         """
         self.find_click(Config().get_base_page("ID_ME_PAGE"))
-        print(f"跳转个人页{Config().get_base_page('ID_ME_PAGE')}")
         return self
 
     def up_swipe(self):

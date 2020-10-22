@@ -18,7 +18,7 @@ sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(
 from common.pages.SettingPage import *
 
 
-def setting_1():
+def setting():
     sp1 = SettingPage()
     # sp1.goto_setting_page()
     # sp1.restart_app()
@@ -27,8 +27,7 @@ def setting_1():
     # print(Config.get_yaml().get("package_name", None))
     # assert_equal(1, 1, "1=1")
     sp1.go_me_page().snap("到个人主页")  # .back().back().back().start_app().go_me_page()
-    # sp1.goto_setting_page().goto_network_ping().back().back()
+    sp1.goto_setting_page().goto_network_ping().back().back()
     # sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦~")
 
-
-setting_1()
+setting()
