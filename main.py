@@ -11,6 +11,7 @@ import os
 import traceback
 import subprocess
 import webbrowser
+import arrow
 import time
 import json
 import shutil
@@ -132,7 +133,8 @@ def run_summary(data):
                           trim_blocks=True)
         html = env.get_template('report_tpl.html').render(data=summary)
         summary_report_file_name = data.get("script").split(".")[0]
-        with open(f'summary_report/{summary_report_file_name}.html', "w", encoding="utf-8") as f:
+        _report_time_now = arrow.utcnow().format('YYYYMMDD_HHmmss')
+        with open(f'summary_report/{summary_report_file_name}_{_report_time_now}.html', "w", encoding="utf-8") as f:
             f.write(html)
         print("run_summary --- ", data)
         # webbrowser.open('report.html')
@@ -193,7 +195,7 @@ if __name__ == '__main__':
         Init variables here
     """
     devices = [tmp[0] for tmp in ADB().devices()]
-    air = 'setting_1.air'
+    air = 'setting.air'
 
     # Continue tests saved in data.json
     # Skip scripts that run succeed
@@ -202,4 +204,6 @@ if __name__ == '__main__':
 
     # Resun all script
     # 重新运行所有脚本
+    run(devices, air, run_all=True)
+    run(devices, air, run_all=True)
     run(devices, air, run_all=True)
