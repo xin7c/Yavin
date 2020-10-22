@@ -167,11 +167,11 @@ def load_json_data(air, run_all):
 
 def clear_log_dir(air):
     """"
-        清理log文件夹 setting.air/log
-        Remove folder setting.air/log
+        清理log文件夹 log/setting.air
+        Remove folder log/setting.air
+        每次启动时清空log下的文件夹
     """
-    log = os.path.join(os.getcwd(), 'log', air, 'log')
-    print('clear_log_dir --- ', log)
+    log = os.path.join(os.getcwd(), 'log', air)
     if os.path.exists(log):
         shutil.rmtree(log)
 
@@ -204,6 +204,4 @@ if __name__ == '__main__':
 
     # Resun all script
     # 重新运行所有脚本
-    run(devices, air, run_all=True)
-    run(devices, air, run_all=True)
     run(devices, air, run_all=True)
