@@ -137,7 +137,7 @@ dmypy.json
 
 log/
 html_logs/
-
+summary_report/*.html
 *.pyc
 
 data.json
