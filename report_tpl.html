@@ -203,7 +203,7 @@
   <body class="zh">
   <div class="container-fluid" >
     <div class="container">
-      <div class="main">
+      <div class="main" id="main">
         <div class="material">
           <h1>{{data['script']}}</h1>
           <div class="center">
@@ -271,6 +271,7 @@
     var close = document.querySelector('.iframe .close')
     var langBtn = document.querySelector('.lang')
     var body = document.body
+    var head = document.querySelector('.head')
     var prevActiveRow = null
     function init() {
       for(i=0; i<rows.length; i++){
@@ -297,6 +298,9 @@
         if (iframe.className.indexOf('show')>=0) {
           showIframe(prevActiveRow)
         }
+      })
+      addEvent(head, 'click', function(e){
+        iframe.className='iframe'
       })
       document.body.className = Lang
     }
