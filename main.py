@@ -133,7 +133,7 @@ def run_summary(data):
                           trim_blocks=True)
         html = env.get_template('report_tpl.html').render(data=summary)
         summary_report_file_name = data.get("script").split(".")[0]
-        _report_time_now = arrow.utcnow().format('YYYYMMDD_HHmmss')
+        _report_time_now = arrow.now().format('YYYYMMDD_HHmmss')
         with open(f'summary_report/{summary_report_file_name}_{_report_time_now}.html', "w", encoding="utf-8") as f:
             f.write(html)
         print("run_summary --- ", data)

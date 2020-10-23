@@ -30,4 +30,7 @@ def setting():
     sp1.goto_setting_page().goto_network_ping().back().back()
     # sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦~")
 
-setting()
+
+for i in range(1):
+    logging.error(f"执行第{i+1}次 ===============")
+    setting()

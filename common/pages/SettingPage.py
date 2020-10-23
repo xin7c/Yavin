@@ -2,9 +2,10 @@
 import sys
 import os
 import logging
+import time
 
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-from airtest.core.api import sleep, assert_equal
+from airtest.core.api import sleep, assert_equal, log
 from common.pages.BasePage import BasePage
 from config.config import Config
 
@@ -35,7 +36,11 @@ class SettingPage(BasePage):
         :return:
         """
         self.poco(text=self.page_ele_loc("TEXT_NETWORK_DIAGNOSIS")).click()
-        # sleep(30)
+        sleep(1)
+        log('网络检测页面截图',
+            timestamp=time.time(),
+            desc='网络检测页面截图',
+            snapshot=True)
         return self
 
     def setting_page_instance(self):
