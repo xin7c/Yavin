@@ -36,11 +36,19 @@ class SettingPage(BasePage):
         :return:
         """
         self.poco(text=self.page_ele_loc("TEXT_NETWORK_DIAGNOSIS")).click()
-        sleep(1)
-        log('网络检测页面截图',
-            timestamp=time.time(),
-            desc='网络检测页面截图',
-            snapshot=True)
+        try:
+            assert_equal(self.poco(text="Upload diagnosis report").exists(),
+                         True,
+                         msg='Upload diagnosis report 按钮出现')
+            log('网络检测页面截图',
+                timestamp=time.time(),
+                desc='网络检测页面截图',
+                snapshot=True)
+        except AssertionError as e:
+            log(e,
+                timestamp=time.time(),
+                desc='Upload diagnosis report 按钮没有出现',
+                snapshot=True)
         return self
 
     def setting_page_instance(self):
