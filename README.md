@@ -20,6 +20,9 @@ sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦
 * go_me_page：跳转个人页
 * back：后退
 
+## 多进程驱动多设备运行脚本
+* 使用main.py方法  
+* 聚合报告路径: summary_report/*.html  
 
 ## 命令行相关
 注意，执行命令行的目录为本项目所在目录，在该目录执行ls应该看到如下文件、文件夹
@@ -44,6 +47,17 @@ airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plug
  python -m airtest report testcase/start_broadcast.air --log_root testcase/start_broadcast.air/log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
 ```
 
+## 遇到adb killed问题咋办
+* 遇到adb断开连接或获取不到状态  
+```shell script
+airtest adb server version (40) doesn't match this client (41); killing...
+```
+
+* 把Airtest实际驱动的adb替换成和本地一样的版本即可  
+```shell script
+cp ~/Library/Android/sdk/platform-tools/adb {你的项目所在路径}/Yavin/venv/lib/python3.7/site-packages/airtest/core/android/static/adb/mac/adb
+```
+
 ## zk
 ```text
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -54,10 +68,4 @@ docker run -d \
 -v {your_path}/data:/data/ \
 --name=zk1  \
 --privileged zookeeper
-
 ```
-
-## 配置adb
-/Applications/AirtestIDE.app/Contents/MacOS/airtest/core/android/static/adb/mac
-mv adb adb_bak
-ln -s ~/Library/Android/sdk/platform-tools/adb adb
