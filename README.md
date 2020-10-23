@@ -37,7 +37,7 @@ python -m airtest run testcase/start_broadcast.air --device Android://127.0.0.1:
 ```
 
 ```
-airtest run testcase/setting.air
+airtest run testcase/setting.air --log log/
 airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
 ```
 
@@ -49,12 +49,12 @@ airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plug
 
 ## 遇到adb killed问题咋办
 * 遇到adb断开连接或获取不到状态  
-```shell script
+```
 airtest adb server version (40) doesn't match this client (41); killing...
 ```
 
 * 把Airtest实际驱动的adb替换成和本地一样的版本即可  
-```shell script
+```
 cp ~/Library/Android/sdk/platform-tools/adb {你的项目所在路径}/Yavin/venv/lib/python3.7/site-packages/airtest/core/android/static/adb/mac/adb
 ```
 
