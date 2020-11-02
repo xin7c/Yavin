@@ -46,6 +46,7 @@ class BasePage(object, metaclass=Base):
         # 获取poco实例
         self.poco = AndroidUiautomationPoco(use_airtest_input=True,
                                             screenshot_each_action=False)
+        self.device = device()
         # 获取根目录
         # self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         # if not cli_setup():
@@ -233,4 +234,5 @@ if __name__ == '__main__':
     print(devices)
     print(b.cls_name)
     # b.click("com.cmcm.live:id/me_page")
-    b.restart_app()
+    # b.restart_app()
+    print(b.screen_size)

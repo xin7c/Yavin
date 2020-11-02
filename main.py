@@ -191,7 +191,7 @@ if __name__ == '__main__':
         Init variables here
     """
     devices = [tmp[0] for tmp in ADB().devices()]
-    air = 'goto_single_live.air'
+    air = 'setting.air'
 
     # Continue tests saved in data.json
     # Skip scripts that run succeed
