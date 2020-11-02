@@ -1,3 +1,4 @@
+arrow
 airtest==1.1.6
 certifi==2020.6.20
 chardet==3.0.4

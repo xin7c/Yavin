@@ -5,6 +5,7 @@
 @file:config.py
 @time:2020/09/21
 """
+import subprocess
 
 import yaml
 import os
@@ -108,6 +109,36 @@ class Config(object):
         info["password"] = sn_data.get("password", None)
         return info
 
+    @staticmethod
+    def get_apk_version(package_name: str) -> str:
+        """
+        调用adb获取apk版本号
+        :example Config.get_apk_version(Config.get_yaml().get("package_name"))
+        :param package_name: 比如com.cmcm.live
+        :return:
+        """
+        cmd = [
+            "adb",
+            "shell",
+            "dumpsys",
+            "package",
+            f"{package_name}",
+            "|",
+            "grep",
+            "versionName",
+        ]
+        ret = subprocess.run(cmd,
+                             stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,
+                             check=True)
+        if ret.returncode == 0:
+            version_name = str(ret.stdout, encoding="utf-8").strip().split("=")[-1]
+            print(f"success:[{version_name}]")
+            return version_name
+        else:
+            print(f"error:[{ret}]")
+            return "获取apk版本号失败!"
+
 
 if __name__ == '__main__':
     current_path = os.path.abspath(".")
@@ -116,3 +147,4 @@ if __name__ == '__main__':
     print(f"data ---> {data['HomePage']['username']}")
     print(Config().get_info_by_sn("50354b4659543398").get("username"))
     print(Config().get_devices_list)
+    Config.get_apk_version(Config.get_yaml().get("package_name"))

@@ -10,7 +10,6 @@
 import os
 import traceback
 import subprocess
-import webbrowser
 import arrow
 import time
 import json
@@ -97,9 +96,7 @@ def run_one_report(air, dev):
                 "--lang",
                 "zh"
             ]
-            ret = subprocess.call(cmd,
-                                  cwd=os.getcwd()
-                                  )
+            ret = subprocess.call(cmd, cwd=os.getcwd())
             return {
                 'status': ret,
                 'path': os.path.join(f'html_logs/{dev}/{air.split(".")[0]}.log/', 'log.html')
@@ -137,7 +134,6 @@ def run_summary(data):
         with open(f'summary_report/{summary_report_file_name}_{_report_time_now}.html', "w", encoding="utf-8") as f:
             f.write(html)
         print("run_summary --- ", data)
-        # webbrowser.open('report.html')
     except Exception as e:
         traceback.print_exc()
 
@@ -195,7 +191,7 @@ if __name__ == '__main__':
         Init variables here
     """
     devices = [tmp[0] for tmp in ADB().devices()]
-    air = 'setting.air'
+    air = 'goto_single_live.air'
 
     # Continue tests saved in data.json
     # Skip scripts that run succeed
