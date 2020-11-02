@@ -46,7 +46,6 @@ class BasePage(object, metaclass=Base):
         # 获取poco实例
         self.poco = AndroidUiautomationPoco(use_airtest_input=True,
                                             screenshot_each_action=False)
-        self.device = device()
         # 获取根目录
         # self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         # if not cli_setup():
@@ -56,7 +55,7 @@ class BasePage(object, metaclass=Base):
         #         logdir=False
         #     )
         self._setting()
-        self.width, self.height = 0, 0
+        self.width, self.height = device().get_current_resolution()
         print("[BasePage] init...")
         self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.main_phone = self.config.get("main_phone")
@@ -157,7 +156,6 @@ class BasePage(object, metaclass=Base):
     @property
     def screen_size(self):
         """获取当前屏幕尺寸"""
-        self.width, self.height = self.device.get_current_resolution()
         return self.width, self.height
 
     def snap(self, msg: str = None):
@@ -191,7 +189,6 @@ class BasePage(object, metaclass=Base):
 
     def up_swipe(self):
         """上滑"""
-        self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height * 0.7)
         end_pt = (self.width * 0.7, self.height * 0.3)
         swipe(start_pt, end_pt)
@@ -199,7 +196,6 @@ class BasePage(object, metaclass=Base):
 
     def down_swipe(self):
         """下滑"""
-        self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height * 0.3)
         end_pt = (self.width * 0.7, self.height * 0.7)
         swipe(start_pt, end_pt)
@@ -207,7 +203,6 @@ class BasePage(object, metaclass=Base):
 
     def left_swipe(self):
         """左滑"""
-        self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.3, self.height / 2)
         end_pt = (self.width * 0.7, self.height / 2)
         swipe(start_pt, end_pt)
@@ -215,7 +210,6 @@ class BasePage(object, metaclass=Base):
 
     def right_swipe(self):
         """右滑"""
-        self.width, self.height = self.device.get_current_resolution()
         start_pt = (self.width * 0.7, self.height / 2)
         end_pt = (self.width * 0.3, self.height / 2)
         swipe(start_pt, end_pt)
