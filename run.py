@@ -12,6 +12,7 @@ import os
 import subprocess
 from config.config import Config
 import argparse
+import arrow
 
 file_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -65,7 +66,7 @@ def run():
         "--log_root",
         "log/",
         "--export",
-        f"{file_path}/log/{args.case}/{args.packagename}",
+        f"{file_path}/log/{args.case}/{args.packagename}_{arrow.now().format('YYYYMMDD_HHmmss')}",
         "--plugin",
         "poco.utils.airtest.report"
     ]
