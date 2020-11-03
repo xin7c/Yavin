@@ -31,9 +31,10 @@ class Base(type):
             with open("package_name.txt", "r") as f:
                 cls.package_name = f.read()
                 if cls.package_name:
-                    print("Base读取package_name.txt")
+                    # print("Base读取package_name.txt")
+                    pass
                 else:
-                    print("Base读取config.yaml")
+                    # print("Base读取config.yaml")
                     cls.package_name = config.Config.get_yaml().get("package_name", None)
             logger = get_logger("airtest")
             logger.setLevel(logging.INFO)
