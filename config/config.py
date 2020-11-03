@@ -23,6 +23,7 @@ def page_ele_loc(self, key: str) -> str:
     # print(f"page_ele_loc {self.__dict__}")
     # 获取配置
     conf = Config()
+    # 读取临时文件中的包名
     with open("package_name.txt", "r") as f:
         package_name = f.read()
         if package_name:

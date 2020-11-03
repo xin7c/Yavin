@@ -24,8 +24,8 @@ def run():
     """
     parser = argparse.ArgumentParser(
         description='请提供case名和包名~',
-        prog='Yavin启动脚本',
-        usage='case名默认setting.air | 包名必填:[liveme | pro | poplive | Frill]',
+        prog='Yavin单Case启动脚本',
+        usage='python run.py -c [case名默认setting.air] -p 包名必填:[liveme | pro | poplive | Frill]',
         epilog='有问题请联系xuchu@joyme.sg'
     )
     parser.add_argument('-c', '--case', dest='case', type=str, default='setting.air', help='测试用例名字.air')
