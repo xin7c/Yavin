@@ -8,12 +8,12 @@ from poco.drivers.unity3d import UnityPoco
 from airtest.core.api import *
 from airtest.core.settings import Settings as ST
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-from enum import Enum
+from enum import Enum, unique
 
 from config.config import Config
 from common.Base.Base import Base
 
-
+@unique
 class Actions(Enum):
     """
     子页面实例拦截动作名称枚举值
