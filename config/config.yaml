@@ -6,7 +6,7 @@ package_name_dict:
   liveme: "com.cmcm.live"
   pro: "com.europe.live"
   poplive: "com.alive.android"
-  Frill: "com.aaalive.live"
+  frill: "com.aaalive.live"
 
 main_phone : "Android://127.0.0.1:5037/"
 

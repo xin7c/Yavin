@@ -25,13 +25,13 @@ def run():
     parser = argparse.ArgumentParser(
         description='请提供case名和包名~',
         prog='Yavin单Case启动脚本',
-        usage='python run.py -c [case名默认setting.air] -p 包名必填:[liveme | pro | poplive | Frill]',
+        usage='python run.py -c [case名默认setting.air] -p 包名必填:[liveme | pro | poplive | frill]',
         epilog='有问题请联系xuchu@joyme.sg'
     )
     parser.add_argument('-c', '--case', dest='case', type=str, default='setting.air', help='测试用例名字.air')
     parser.add_argument('-p', '--packagename', dest='packagename',
                         type=str, required=True,
-                        help='包名[liveme | pro | poplive | Frill]')
+                        help='包名[liveme | pro | poplive | frill]')
     args = parser.parse_args()
 
     package_name_dict = Config.get_yaml().get("package_name_dict", None)
