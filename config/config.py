@@ -23,7 +23,13 @@ def page_ele_loc(self, key: str) -> str:
     # print(f"page_ele_loc {self.__dict__}")
     # 获取配置
     conf = Config()
-    package_name = conf.get_data.get("package_name", None)
+    with open("package_name.txt", "r") as f:
+        package_name = f.read()
+        if package_name:
+            pass
+        else:
+            package_name = conf.get_data.get("package_name", None)
+    # package_name = conf.get_data.get("package_name", None)
     page_config_data = conf.get_data.get(self.cls_name, None)
     # print(page_config_data, self.cls_name, package_name, page_config_data.get(key, None))
     # 判断ID前缀，拼接package_name
@@ -71,7 +77,14 @@ class Config(object):
         获取包名、设备信息
         :return:
         """
-        package_name = self.get_yaml().get("package_name", None)
+        with open("package_name.txt", "r") as f:
+            package_name = f.read()
+            if package_name:
+                # print(f"读取txt[{package_name}]")
+                pass
+            else:
+                package_name = self.get_data.get("package_name", None)
+        # package_name = self.get_yaml().get("package_name", None)
         base_page_element = self.get_yaml().get("BasePage", None)[element]
         return ''.join((package_name, base_page_element))
 

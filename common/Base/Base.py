@@ -28,7 +28,13 @@ class Base(type):
         if name != "BasePage":
             cls.cls_name = name
             cls.page_ele_loc = config.page_ele_loc
-            cls.package_name = config.Config.get_yaml().get("package_name", None)
+            with open("package_name.txt", "r") as f:
+                cls.package_name = f.read()
+                if cls.package_name:
+                    print("Base读取package_name.txt")
+                else:
+                    print("Base读取config.yaml")
+                    cls.package_name = config.Config.get_yaml().get("package_name", None)
             logger = get_logger("airtest")
             logger.setLevel(logging.INFO)
             print(f"**********\n"

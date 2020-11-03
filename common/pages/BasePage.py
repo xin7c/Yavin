@@ -1,9 +1,12 @@
 # -*- encoding=utf8 -*-
 import os
+import threading
+
 from airtest.cli.parser import cli_setup
 from airtest.core.android.adb import ADB
 from poco.drivers.unity3d import UnityPoco
 from airtest.core.api import *
+from airtest.core.settings import Settings as ST
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 from enum import Enum
 
@@ -104,11 +107,12 @@ class BasePage(object, metaclass=Base):
 
     def _setting(self):
         """全局设置"""
-        ST.FIND_TIMEOUT = 30  # 隐式等待
+        ST.FIND_TIMEOUT = 5  # 隐式等待
         ST.SNAPSHOT_QUALITY = 70  # 图片精度
 
     def start_app(self):
         """启动app"""
+        print(f"准备启动app[{self.package_name}]")
         start_app(self.package_name)
         sleep(2)
         return self
@@ -122,6 +126,7 @@ class BasePage(object, metaclass=Base):
         """重启app"""
         stop_app(self.package_name)
         sleep(2)
+        print(f"准备启动app[{self.package_name}]")
         start_app(self.package_name)
         sleep(2)
         return self
@@ -129,10 +134,10 @@ class BasePage(object, metaclass=Base):
     def find(self, *element):
         """基本查找"""
         if len(element) == 1:
-            self.poco(f"{element[0]}").wait_for_appearance()
+            self.poco(f"{element[0]}").wait_for_appearance(20)
             return self.poco(f"{element[0]}")
         elif len(element) == 2:
-            self.poco(f"{element[0]}").child(f"{element[1]}").wait_for_appearance()
+            self.poco(f"{element[0]}").child(f"{element[1]}").wait_for_appearance(20)
             return self.poco(f"{element[0]}").child(f"{element[1]}")
 
     def find_click(self, *element):
@@ -184,6 +189,7 @@ class BasePage(object, metaclass=Base):
         跳转个人页
         :return: poco
         """
+        print('跳转个人页go_me_page')
         self.find_click(Config().get_base_page("ID_ME_PAGE"))
         return self
 
