@@ -30,7 +30,7 @@ sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦
 ```
 READEME.md   common   requirementes.txt  testcase
 ```
-启动用例：
+### 启动用例：
 
 ```
 python -m airtest run testcase/start_broadcast.air --device Android://127.0.0.1:5037/50354b4659543398 --log testcase/start_broadcast.air/log/
@@ -41,11 +41,13 @@ airtest run testcase/setting.air --log log/
 airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
 ```
 
-生成报告：
+### 生成报告：
 
 ```
  python -m airtest report testcase/start_broadcast.air --log_root testcase/start_broadcast.air/log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
 ```
+### run.py
+`python run.py -h` 查看具体用法
 
 ## 遇到adb killed问题咋办
 * 遇到adb断开连接或获取不到状态  

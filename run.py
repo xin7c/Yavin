@@ -13,6 +13,8 @@ import subprocess
 from config.config import Config
 import argparse
 
+file_path = os.path.dirname(os.path.abspath(__file__))
+
 
 def run():
     """
@@ -44,15 +46,32 @@ def run():
         raise KeyError("传入包名未知，请不要瞎写！")
     with open("package_name.txt", "w+") as f:
         f.write(package_name_dict[args.packagename])
-    cmd = [
+    run_cmd = [
         "airtest",
         "run",
         f"testcase/{args.case}",
         "--log",
         "log/"
     ]
-    ret = subprocess.call(cmd, cwd=os.getcwd())
-    if ret == 0:
+    run_ret = subprocess.call(run_cmd, cwd=os.getcwd())
+    if run_ret == 0:
+        print("看起来执行成功了呢")
+
+    # airtest report testcase/setting.air --log_root log/ --export ~/Downloads/ --plugin poco.utils.airtest.report
+    report_cmd = [
+        "airtest",
+        "report",
+        f"testcase/{args.case}",
+        "--log_root",
+        "log/",
+        "--export",
+        f"{file_path}/log/{args.case}/{args.packagename}",
+        "--plugin",
+        "poco.utils.airtest.report"
+    ]
+    print()
+    report_ret = subprocess.call(report_cmd, cwd=os.getcwd())
+    if report_ret == 0:
         print("看起来执行成功了呢")
 
 
