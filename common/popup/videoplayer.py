@@ -64,5 +64,6 @@ def videoplayer_dialog_check():
 
 def videoplayer_popup_handler(func):
     t = threading.Thread(target=videoplayer_dialog_check)
+    t.setDaemon(True)
     t.start()
     return func
