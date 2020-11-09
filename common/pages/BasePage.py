@@ -13,6 +13,7 @@ from enum import Enum, unique
 from config.config import Config
 from common.Base.Base import Base
 
+
 @unique
 class Actions(Enum):
     """
@@ -218,6 +219,20 @@ class BasePage(object, metaclass=Base):
         """右滑"""
         start_pt = (self.width * 0.7, self.height / 2)
         end_pt = (self.width * 0.3, self.height / 2)
+        swipe(start_pt, end_pt)
+        return self
+
+    def left_swipe_tab(self):
+        """左滑tab"""
+        start_pt = (self.width * 0.05, self.height / 2)
+        end_pt = (self.width * 0.8, self.height / 2)
+        swipe(start_pt, end_pt)
+        return self
+
+    def right_swipe_tab(self):
+        """右滑tab"""
+        start_pt = (self.width * 0.05, self.height / 2)
+        end_pt = (self.width * 0.8, self.height / 2)
         swipe(start_pt, end_pt)
         return self
 
