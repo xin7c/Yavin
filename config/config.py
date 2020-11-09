@@ -65,6 +65,19 @@ class Config(object):
         # print("类型：", type(yaml_data))
         return yaml_data
 
+    def get_package_name(self):
+        """
+        :return:暴露package_name
+        """
+        with open("package_name.txt", "r") as f:
+            package_name = f.read()
+            if package_name:
+                # print(f"读取txt[{package_name}]")
+                pass
+            else:
+                package_name = self.get_data.get("package_name", None)
+        return package_name
+
     @property
     def get_data(self):
         """
