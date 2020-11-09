@@ -3,8 +3,7 @@ import sys
 import os
 import logging
 import time
-
-sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from airtest.core.api import sleep, assert_equal, log
 from common.pages.BasePage import BasePage
 from config.config import Config
@@ -82,5 +81,6 @@ if __name__ == '__main__':
 
     # print(sp.screen_size)
     # sp.right_swipe().left_swipe()
-    print(Config.get_yaml(yaml_name="config.yaml").get("package_name", None) + ':id/setting_img')
+    # print(Config.get_yaml(yaml_name="config.yaml").get("package_name", None) + ':id/setting_img')
     # print(sp.screen_size)
+    print(Config().get_package_name)

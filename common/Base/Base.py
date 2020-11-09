@@ -12,9 +12,12 @@ import sys
 from airtest.utils.logger import get_logger
 
 from config import config
+print(sys.path)
 
-sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+file_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+package_name_path = os.path.join(file_path, "package_name.txt")
+print(package_name_path)
 
 class Base(type):
     def __new__(mcs, name, bases, attrs):
@@ -28,7 +31,7 @@ class Base(type):
         if name != "BasePage":
             cls.cls_name = name
             cls.page_ele_loc = config.page_ele_loc
-            with open("package_name.txt", "r") as f:
+            with open(package_name_path, "r") as f:
                 cls.package_name = f.read()
                 if cls.package_name:
                     # print("Base读取package_name.txt")

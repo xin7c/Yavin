@@ -6,11 +6,13 @@
 @time:2020/09/21
 """
 import subprocess
+import sys
 
 import yaml
 import os
 from collections import defaultdict
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 file_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 package_name_path = os.path.join(file_path, "package_name.txt")
 
