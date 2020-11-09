@@ -12,7 +12,7 @@ import os
 from collections import defaultdict
 
 file_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-package_name_path = f"{file_path}/package_name.txt"
+package_name_path = os.path.join(file_path, "package_name.txt")
 
 
 def page_ele_loc(self, key: str) -> str:
@@ -178,7 +178,7 @@ class Config(object):
 
 
 if __name__ == '__main__':
-    print(file_path)
+    print(package_name_path)
     current_path = os.path.abspath(".")
     yaml_path = os.path.join(current_path, "config.yaml")
     data = Config.get_yaml()
