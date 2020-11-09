@@ -222,6 +222,20 @@ class BasePage(object, metaclass=Base):
         swipe(start_pt, end_pt)
         return self
 
+    def up_swipe_tab(self):
+        """上滑tab 切换直播间"""
+        start_pt = (self.width / 2, self.height * 0.5)
+        end_pt = (self.width / 2, self.height * 0.1)
+        swipe(start_pt, end_pt)
+        return self
+
+    def down_swipe_tab(self):
+        """下滑tab 切换直播间"""
+        start_pt = (self.width / 2, self.height * 0.1)
+        end_pt = (self.width / 2, self.height * 0.5)
+        swipe(start_pt, end_pt)
+        return self
+
     def left_swipe_tab(self):
         """左滑tab"""
         start_pt = (self.width * 0.05, self.height / 2)
