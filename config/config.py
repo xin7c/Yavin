@@ -11,6 +11,9 @@ import yaml
 import os
 from collections import defaultdict
 
+file_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+package_name_path = f"{file_path}/package_name.txt"
+
 
 def page_ele_loc(self, key: str) -> str:
     """
@@ -24,7 +27,7 @@ def page_ele_loc(self, key: str) -> str:
     # 获取配置
     conf = Config()
     # 读取临时文件中的包名
-    with open("package_name.txt", "r") as f:
+    with open(package_name_path, "r") as f:
         package_name = f.read()
         if package_name:
             pass
@@ -70,7 +73,7 @@ class Config(object):
         """
         :return:暴露package_name
         """
-        with open("package_name.txt", "r") as f:
+        with open(package_name_path, "r") as f:
             package_name = f.read()
             if package_name:
                 # print(f"读取txt[{package_name}]")
@@ -78,6 +81,9 @@ class Config(object):
             else:
                 package_name = self.get_data.get("package_name", None)
         return package_name
+
+    def package_name_dict(self, key: str):
+        return self.get_yaml().get('package_name_dict').get(key)
 
     @property
     def get_data(self):
@@ -92,7 +98,7 @@ class Config(object):
         获取包名、设备信息
         :return:
         """
-        with open("package_name.txt", "r") as f:
+        with open(package_name_path, "r") as f:
             package_name = f.read()
             if package_name:
                 # print(f"读取txt[{package_name}]")
@@ -172,6 +178,7 @@ class Config(object):
 
 
 if __name__ == '__main__':
+    print(file_path)
     current_path = os.path.abspath(".")
     yaml_path = os.path.join(current_path, "config.yaml")
     data = Config.get_yaml()
@@ -180,3 +187,4 @@ if __name__ == '__main__':
     print(Config().get_devices_list)
     print(Config().get_apk_version(Config.get_yaml().get("package_name")))
     print(Config().get_package_name)
+    print(Config().package_name_dict('poplive'))
