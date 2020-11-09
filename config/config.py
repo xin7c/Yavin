@@ -65,6 +65,7 @@ class Config(object):
         # print("类型：", type(yaml_data))
         return yaml_data
 
+    @property
     def get_package_name(self):
         """
         :return:暴露package_name
@@ -154,17 +155,20 @@ class Config(object):
             "grep",
             "versionName",
         ]
-        ret = subprocess.run(cmd,
-                             stdout=subprocess.PIPE,
-                             stderr=subprocess.PIPE,
-                             check=True)
-        if ret.returncode == 0:
-            version_name = str(ret.stdout, encoding="utf-8").strip().split("=")[-1]
-            print(f"success:[{version_name}]")
-            return version_name
-        else:
-            print(f"error:[{ret}]")
-            return "获取apk版本号失败!"
+        try:
+            ret = subprocess.run(cmd,
+                                 stdout=subprocess.PIPE,
+                                 stderr=subprocess.PIPE,
+                                 check=True)
+            if ret.returncode == 0:
+                version_name = str(ret.stdout, encoding="utf-8").strip().split("=")[-1]
+                print(f"success:[{version_name}]")
+                return version_name
+            else:
+                print(f"error:[{ret}]")
+                return "获取apk版本号失败!"
+        except subprocess.CalledProcessError as e:
+            return f"可能的设备连接错误: {e}"
 
 
 if __name__ == '__main__':
@@ -174,4 +178,5 @@ if __name__ == '__main__':
     print(f"data ---> {data['HomePage']['username']}")
     print(Config().get_info_by_sn("50354b4659543398").get("username"))
     print(Config().get_devices_list)
-    Config.get_apk_version(Config.get_yaml().get("package_name"))
+    print(Config().get_apk_version(Config.get_yaml().get("package_name")))
+    print(Config().get_package_name)
