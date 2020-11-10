@@ -133,7 +133,7 @@ class BasePage(object, metaclass=Base):
         return self
 
     def find(self, *element):
-        """基本查找"""
+        """基本查找, 可能会抛出异常"""
         if len(element) == 1:
             self.poco(f"{element[0]}").wait_for_appearance(20)
             return self.poco(f"{element[0]}")
@@ -238,8 +238,8 @@ class BasePage(object, metaclass=Base):
 
     def left_swipe_tab(self):
         """左滑tab"""
-        start_pt = (self.width * 0.05, self.height / 2)
-        end_pt = (self.width * 0.8, self.height / 2)
+        start_pt = (self.width * 0.8, self.height / 2)
+        end_pt = (self.width * 0.05, self.height / 2)
         swipe(start_pt, end_pt)
         return self
 

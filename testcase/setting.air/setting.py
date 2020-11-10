@@ -30,6 +30,7 @@ def setting():
     # sp1.goto_setting_page().goto_network_ping().back().back()
     print(f"测试打印[{sp1.screen_size}]")
     sp1.restart_app()
+    sp1.go_me_page().goto_setting_page().goto_network_ping()
     # sp1.setting_page_instance().snap("after instance").restart_app().snap("重启啦~")
 
 
