@@ -30,7 +30,7 @@ def page_ele_loc(self, key: str) -> str:
     conf = Config()
     # 读取临时文件中的包名
     with open(package_name_path, "r") as f:
-        package_name = f.read()
+        package_name = f.read().strip()
         if package_name:
             pass
         else:
@@ -76,7 +76,7 @@ class Config(object):
         :return:暴露package_name
         """
         with open(package_name_path, "r") as f:
-            package_name = f.read()
+            package_name = f.read().strip()
             if package_name:
                 # print(f"读取txt[{package_name}]")
                 pass
@@ -101,7 +101,7 @@ class Config(object):
         :return:
         """
         with open(package_name_path, "r") as f:
-            package_name = f.read()
+            package_name = f.read().strip()
             if package_name:
                 # print(f"读取txt[{package_name}]")
                 pass

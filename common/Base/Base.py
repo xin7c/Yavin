@@ -32,7 +32,7 @@ class Base(type):
             cls.cls_name = name
             cls.page_ele_loc = config.page_ele_loc
             with open(package_name_path, "r") as f:
-                cls.package_name = f.read()
+                cls.package_name = f.read().strip()
                 if cls.package_name:
                     # print("Base读取package_name.txt")
                     pass
