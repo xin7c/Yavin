@@ -12,6 +12,8 @@ import yaml
 import os
 from collections import defaultdict
 
+from airtest.core.api import device
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 file_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 package_name_path = os.path.join(file_path, "package_name.txt")
@@ -153,8 +155,11 @@ class Config(object):
         :param package_name: 比如com.cmcm.live
         :return:
         """
+        sn = device().getprop('ro.serialno')
         cmd = [
             "adb",
+            "-s",
+            sn,
             "shell",
             "dumpsys",
             "package",
