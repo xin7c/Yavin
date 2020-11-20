@@ -132,6 +132,8 @@ def run_summary(data):
         summary_report_file_name = data.get("script").split(".")[0]
         # print(summary_report_file_name)
         if "/" in summary_report_file_name:
+            dir_name = summary_report_file_name.split("/")[0]
+            os.mkdir(f'summary_report/{dir_name}')
             summary_report_file_name.replace("/", "_")
         _report_time_now = arrow.now().format('YYYYMMDD_HHmmss')
         with open(f'summary_report/{summary_report_file_name}_{_report_time_now}.html', "w", encoding="utf-8") as f:
