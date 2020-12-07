@@ -109,6 +109,7 @@ class BasePage(object, metaclass=Base):
     def _setting(self):
         """全局设置"""
         ST.FIND_TIMEOUT = 5  # 隐式等待
+        ST.FIND_TIMEOUT_TMP = 10  # 隐式等待
         ST.SNAPSHOT_QUALITY = 70  # 图片精度
 
     def start_app(self):
